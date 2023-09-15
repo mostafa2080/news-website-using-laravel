@@ -136,7 +136,7 @@
     <footer class="footer footer-alt">
         <script>
             document.write(new Date().getFullYear())
-        </script> &copy; EeayNews by <a href="" class="text-white-50">Easylearning</a>
+        </script> &copy; EeayNews by <a href="" class="text-white-50">Mostafa Shaaban</a>
     </footer>
 
     <!-- Vendor js -->
