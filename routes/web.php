@@ -37,6 +37,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 }); //end of admin routes
 
 Route::get('admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+Route::get('admin/logout/page', [AdminController::class, 'AdminLogoutPage'])->name('admin.logout.page');
 
 
 
