@@ -69,7 +69,7 @@
 
 
                             <div class="tab-pane" id="settings">
-                                <form method="post" action=""
+                                <form method="post" action="{{ route('admin.profile.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
 
@@ -152,4 +152,16 @@
     </div> <!-- container -->
 
     </div> <!-- content -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection
