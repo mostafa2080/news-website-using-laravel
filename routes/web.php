@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 }); //end of admin routes
 
-Route::get('admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+Route::get('admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class)->name('admin.login');
 Route::get('admin/logout/page', [AdminController::class, 'AdminLogoutPage'])->name('admin.logout.page');
 
 
