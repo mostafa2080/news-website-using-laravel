@@ -64,7 +64,7 @@
                     <div class="collapse" id="sidebarEcommerce1">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="">All SubCategory</a>
+                                <a href="{{ route('all.subcategory') }}">All SubCategory</a>
                             </li>
                             <li>
                                 <a href="">Add SubCategory</a>
