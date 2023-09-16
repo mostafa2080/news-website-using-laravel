@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function AllCategory(){
+    public function AllCategory()
+    {
 
         $categories = Category::latest()->get();
-        return view('backend.category.category_all',compact('categories'));
-
+        return view('backend.category.category_all', compact('categories'));
     } // End Mehtod
+    public function AddCategory()
+    {
+        return view('backend.category.category_add');
+    }
 }
