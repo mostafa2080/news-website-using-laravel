@@ -100,4 +100,11 @@ class AdminController extends Controller
 
         return view('backend.admin.all_admin', compact('alladminuser'));
     }
+
+    public function AddAdmin()
+    {
+        return view('backend.admin.add_admin');
+    } // End Method
+
+
 }
