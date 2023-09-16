@@ -13,9 +13,28 @@ class CategoryController extends Controller
 
         $categories = Category::latest()->get();
         return view('backend.category.category_all', compact('categories'));
-    } // End Mehtod
+    } // End Method
     public function AddCategory()
     {
         return view('backend.category.category_add');
-    }
+    } // End Method
+
+    public function StoreCategory(Request $request)
+    {
+
+        Category::insert([
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ', '-', $request->category_name)),
+
+        ]);
+
+
+        $notification = array(
+            'message' => 'Category Inserted Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    } // End Mehtod
 }
