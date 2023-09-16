@@ -52,4 +52,26 @@ class SubcategoryController extends Controller
         return view('backend.subcategory.subcategory_edit', compact('categories', 'subcategory'));
     } // End Mehtod
 
+    public function UpdateSubcategory(Request $request)
+    {
+
+        $subcat_id = $request->id;
+
+        Subcategory::findOrFail($subcat_id)->update([
+            'category_id' => $request->category_id,
+            'subcategory_name' => $request->subcategory_name,
+            'subcategory_slug' => strtolower(str_replace(' ', '-', $request->subcategory_name)),
+
+        ]);
+
+
+        $notification = array(
+            'message' => 'SubCategory Updated Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->route('all.subcategory')->with($notification);
+    } // End Mehtod
+
 }
