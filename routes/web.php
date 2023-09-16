@@ -69,7 +69,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(SubcategoryController::class)->group(function () {
         Route::get('/all/subcategory', 'AllSubcategory')->name('all.subcategory');
-        
+        Route::get('/add/subcategory', 'AddSubcategory')->name('add.subcategory');
     });
 });
 
