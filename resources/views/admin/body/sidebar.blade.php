@@ -43,7 +43,7 @@
                     <div class="collapse" id="sidebarEcommerce">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="">All Category</a>
+                                <a href="{{ route('all.category') }}">All Category</a>
                             </li>
                             <li>
                                 <a href="">Add Category</a>
