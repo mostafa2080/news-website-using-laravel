@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="{{route('add.subcategory')}}" class="btn btn-blue waves-effect waves-light">Add
+                                <a href="{{ route('add.subcategory') }}" class="btn btn-blue waves-effect waves-light">Add
                                     SubCategory</a>
                             </ol>
                         </div>
@@ -45,10 +45,10 @@
                                             <td>{{ $item['category']['category_name'] }}</td>
                                             <td>{{ $item->subcategory_name }}</td>
                                             <td>
-                                                <a href="{{ route('edit.subcategory', $item->id) }}"
+                                                <a href=""
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
-                                                <a href="{{ route('delete.subcategory', $item->id) }}"
+                                                <a href=""
                                                     class="btn btn-danger rounded-pill waves-effect waves-light"
                                                     id="delete">Delete</a>
 
