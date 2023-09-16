@@ -16,10 +16,30 @@ class SubcategoryController extends Controller
         return view('backend.subcategory.subcategory_all', compact('subcategories'));
     } // End Method
 
-    public function AddSubCategory(){
+    public function AddSubCategory()
+    {
 
         $categories = Category::latest()->get();
-        return view('backend.subcategory.subcategory_add',compact('categories'));
+        return view('backend.subcategory.subcategory_add', compact('categories'));
+    } // End Mehtod
 
-    }// End Mehtod
+    public function StoreSubcategory(Request $request)
+    {
+
+        Subcategory::insert([
+            'category_id' => $request->category_id,
+            'subcategory_name' => $request->subcategory_name,
+            'subcategory_slug' => strtolower(str_replace(' ', '-', $request->subcategory_name)),
+
+        ]);
+
+
+        $notification = array(
+            'message' => 'SubCategory Inserted Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->route('all.subcategory')->with($notification);
+    } // End Mehtod
 }
