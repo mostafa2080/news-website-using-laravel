@@ -69,7 +69,7 @@
 
 
                                             <td>
-                                                <a href=""
+                                                <a href="{{ route('edit.admin', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
                                                 <a href=""
