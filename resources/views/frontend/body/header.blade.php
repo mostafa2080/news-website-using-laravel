@@ -66,12 +66,9 @@
                         <li><a href="https://twitter.com/" target="_blank" title="twitter"><i class="lab la-twitter">
                                 </i> </a></li>
 
-                        @auth
-                            <li><a href=""><b> Logout </b></a> </li>
-                        @else
-                            <li><a href=""><b> Login </b></a> </li>
-                            <li> <a href=""> <b>Register</b> </a> </li>
-                        @endauth
+                        <li><a href=""><b> Logout </b></a> </li>
+                        <li><a href="{{ route('login') }}"><b> Login </b></a> </li>
+                        <li> <a href="{{ route('register') }}"> <b>Register</b> </a> </li>
 
 
                     </ul>
