@@ -71,6 +71,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/all/subcategory', 'AllSubcategory')->name('all.subcategory');
         Route::get('/add/subcategory', 'AddSubcategory')->name('add.subcategory');
         Route::post('/store/subcategory', 'StoreSubcategory')->name('store.subcategory');
+        Route::get('/edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
     });
 });
 
