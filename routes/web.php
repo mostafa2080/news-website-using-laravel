@@ -18,19 +18,15 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [IndexController::class, 'Index']);
 
-Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');
+    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
+}); //end of user route
+
 
 
 Route::middleware('auth')->group(function () {

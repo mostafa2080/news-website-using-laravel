@@ -55,8 +55,8 @@
                                     <ul></ul>
                                 </div>
 
-                                <form action="" method="post" class="wpcf7-form init" enctype="multipart/form-data"
-                                    novalidate="novalidate" data-status="init">
+                                <form action="{{ route('user.profile.store') }}" method="post" class="wpcf7-form init"
+                                    enctype="multipart/form-data" novalidate="novalidate" data-status="init">
                                     @csrf
 
                                     <div style="display: none;">
