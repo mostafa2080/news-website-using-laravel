@@ -42,4 +42,14 @@ class SubcategoryController extends Controller
 
         return redirect()->route('all.subcategory')->with($notification);
     } // End Mehtod
+
+
+    public function EditSubcategory($id)
+    {
+
+        $categories = Category::latest()->get();
+        $subcategory = Subcategory::findOrFail($id);
+        return view('backend.subcategory.subcategory_edit', compact('categories', 'subcategory'));
+    } // End Mehtod
+
 }
