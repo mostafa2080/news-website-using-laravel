@@ -126,4 +126,12 @@ class AdminController extends Controller
         );
         return redirect()->route('all.admin')->with($notification);
     } // End Method
+
+
+    public function EditAdmin($id)
+    {
+
+        $adminuser = User::findOrFail($id);
+        return view('backend.admin.edit_admin', compact('adminuser'));
+    } // End Method
 }
