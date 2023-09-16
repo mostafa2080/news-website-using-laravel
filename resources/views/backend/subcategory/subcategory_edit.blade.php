@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form id="myForm" method="post" action="">
+                            <form id="myForm" method="post" action="{{ route('update.subcategory') }}">
                                 @csrf
 
                                 <input type="hidden" name="id" value="{{ $subcategory->id }}">
