@@ -44,7 +44,7 @@
                                             <td>{{ $item->category_name }}</td>
                                             <td>
 
-                                                <a href=""
+                                                <a href="{{ route('edit.category', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
 
