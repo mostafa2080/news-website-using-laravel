@@ -82,6 +82,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/all/admin', [AdminController::class, 'AllAdmin'])->name('all.admin');
+    Route::get('/add/admin', [AdminController::class, 'AddAdmin'])->name('add.admin');
 }); //end of admin routes
 
 
