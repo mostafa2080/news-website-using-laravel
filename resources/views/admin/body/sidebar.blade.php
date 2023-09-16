@@ -219,7 +219,7 @@
                     <div class="collapse" id="sidebarAuth">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="">All Admin</a>
+                                <a href="{{ route('all.admin') }}">All Admin</a>
                             </li>
 
                             <li>
