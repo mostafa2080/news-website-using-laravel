@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="" class="btn btn-blue waves-effect waves-light">Add
+                                <a href="{{route('add.subcategory')}}" class="btn btn-blue waves-effect waves-light">Add
                                     SubCategory</a>
                             </ol>
                         </div>
