@@ -48,7 +48,7 @@
                                                 <a href="{{ route('edit.subcategory', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
-                                                <a href=""
+                                                <a href="{{ route('delete.subcategory', $item->id) }}"
                                                     class="btn btn-danger rounded-pill waves-effect waves-light"
                                                     id="delete">Delete</a>
 
