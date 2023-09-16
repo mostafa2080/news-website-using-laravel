@@ -16,7 +16,8 @@ class UserController extends Controller
     } //end method
 
 
-    public function UserProfileStore (Request $request){
+    public function UserProfileStore(Request $request)
+    {
         $id = Auth::user()->id;
         $data = User::find($id);
 
@@ -34,6 +35,19 @@ class UserController extends Controller
         }
         $data->save();
         return redirect()->back()->with('status', 'Profile Update Successfully');
+    } //end method
 
+
+    public function UserLogout(Request $request)
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+
+
+        return redirect('/login')->with('status', 'Logged Out Successfully');
     }
 }
