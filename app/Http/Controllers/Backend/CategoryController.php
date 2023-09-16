@@ -44,4 +44,25 @@ class CategoryController extends Controller
         $category = Category::find($id);
         return view('backend.category.category_edit', compact('category'));
     }
+    //End method
+
+    public function UpdateCategory(Request $request)
+    {
+        $cat_id = $request->id;
+
+        Category::findOrFail($cat_id)->update([
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ', '-', $request->category_name)),
+
+        ]);
+
+
+        $notification = array(
+            'message' => 'Category Updated Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->route('all.category')->with($notification);
+    } // End Mehtod
 }
