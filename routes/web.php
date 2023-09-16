@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+//admin dashboard and profile
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -48,7 +49,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])->name('admin.update.password');
-}); //end of admin routes
+});
 
 Route::get('admin/login', [AdminController::class, 'AdminLogin'])->middleware(RedirectIfAuthenticated::class)->name('admin.login');
 Route::get('admin/logout/page', [AdminController::class, 'AdminLogoutPage'])->name('admin.logout.page');
@@ -77,6 +78,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 });
 
+// admin user routes
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::get('/all/admin', [AdminController::class, 'AllAdmin'])->name('all.admin');
+}); //end of admin routes
 
 
 
