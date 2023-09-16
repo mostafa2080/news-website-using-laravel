@@ -85,6 +85,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/add/admin', [AdminController::class, 'AddAdmin'])->name('add.admin');
     Route::post('/store/admin', [AdminController::class, 'StoreAdmin'])->name('store.admin');
     Route::get('/edit/admin/{id}', [AdminController::class, 'EditAdmin'])->name('edit.admin');
+    Route::post('/update/admin', [AdminController::class, 'UpdateAdmin'])->name('update.admin');
 }); //end of admin routes
 
 
