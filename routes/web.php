@@ -80,16 +80,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // admin user routes
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/all/admin', 'AllAdmin')->name('all.admin');
+        Route::get('/add/admin',  'AddAdmin')->name('add.admin');
+        Route::post('/store/admin', 'StoreAdmin')->name('store.admin');
+        Route::get('/edit/admin/{id}',  'EditAdmin')->name('edit.admin');
+        Route::post('/update/admin', 'UpdateAdmin')->name('update.admin');
+        Route::get('/delete/admin/{id}',  'DeleteAdmin')->name('delete.admin');
+        Route::get('/inactive/admin/user/{id}', 'InactiveAdminUser')->name('inactive.admin.user');
+    }); //end of admin routes
 
-    Route::get('/all/admin', [AdminController::class, 'AllAdmin'])->name('all.admin');
-    Route::get('/add/admin', [AdminController::class, 'AddAdmin'])->name('add.admin');
-    Route::post('/store/admin', [AdminController::class, 'StoreAdmin'])->name('store.admin');
-    Route::get('/edit/admin/{id}', [AdminController::class, 'EditAdmin'])->name('edit.admin');
-    Route::post('/update/admin', [AdminController::class, 'UpdateAdmin'])->name('update.admin');
-    Route::get('/delete/admin/{id}', [AdminController::class, 'DeleteAdmin'])->name('delete.admin');
-}); //end of admin routes
 
-
-
+});
 
 require __DIR__ . '/auth.php';
