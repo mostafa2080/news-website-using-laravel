@@ -3,11 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Models\NewsPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
         Route::post('/update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
         Route::get('/delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
+    }); //End Subcategory Routes
+    // NewsPost Routes
+    Route::controller(NewsPostController::class)->group(function () {
+        Route::get('/all/news/post', 'AllNewsPost')->name('all.news.post');
     }); //End Subcategory Routes
 });
 
