@@ -87,10 +87,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/subcategory/{id}', 'EditSubcategory')->name('edit.subcategory');
         Route::post('/update/subcategory', 'UpdateSubcategory')->name('update.subcategory');
         Route::get('/delete/subcategory/{id}', 'DeleteSubcategory')->name('delete.subcategory');
+        Route::get('/subcategory/ajax/{category_id}', 'GetSubCategory');
     }); //End Subcategory Routes
     // NewsPost Routes
     Route::controller(NewsPostController::class)->group(function () {
         Route::get('/all/news/post', 'AllNewsPost')->name('all.news.post');
+        Route::get('/add/news/post', 'AddNewsPost')->name('add.news.post');
     }); //End Subcategory Routes
 });
 
