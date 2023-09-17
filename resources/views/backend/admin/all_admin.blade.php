@@ -64,7 +64,7 @@
 
                                             <td>
 
-                                                <span class="badge badge-pill bg-danger"></span>
+                                                <span class="badge badge-pill bg-danger">{{ $item->role }}</span>
                                             </td>
 
 
@@ -76,9 +76,8 @@
                                                     class="btn btn-danger rounded-pill waves-effect waves-light"
                                                     id="delete">Delete</a>
 
-
                                                 @if ($item->status == 'active')
-                                                    <a href=""
+                                                    <a href="{{ route('inactive.admin.user', $item->id) }}"
                                                         class="btn btn-primary rounded-pill waves-effect waves-light"
                                                         title="Inactive"><i class="fa-solid fa-thumbs-down"></i> </a>
                                                 @else
@@ -86,6 +85,7 @@
                                                         class="btn btn-primary rounded-pill waves-effect waves-light"
                                                         title="Active"><i class="fa-solid fa-thumbs-up"></i></a>
                                                 @endif
+
 
                                             </td>
                                         </tr>
