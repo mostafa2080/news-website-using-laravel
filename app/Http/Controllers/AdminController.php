@@ -187,5 +187,17 @@ class AdminController extends Controller
     } // End Mehtod
 
 
+    public function ActiveAdminUser($id)
+    {
+        // dd($id);
+        User::findOrFail($id)->update(['status' => 'active']);
 
+        $notification = array(
+            'message' => 'Admin User Activated Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->back()->with($notification);
+    } // End Mehtod
 }
