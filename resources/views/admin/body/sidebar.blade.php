@@ -82,7 +82,7 @@
                         <div class="collapse" id="newspost">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">All News Post</a>
+                                    <a href="{{ route('all.news.post') }}">All News Post</a>
                                 </li>
                                 <li>
                                     <a href="">Add News Post</a>
