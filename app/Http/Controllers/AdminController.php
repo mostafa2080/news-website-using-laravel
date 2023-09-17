@@ -171,4 +171,21 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);
     } // End Mehtod
+
+    public function InactiveAdminUser($id)
+    {
+
+        User::findOrFail($id)->update(['status' => 'inactive']);
+
+        $notification = array(
+            'message' => 'Admin User Inactivated Successfully',
+            'alert-type' => 'success'
+
+        );
+
+        return redirect()->back()->with($notification);
+    } // End Mehtod
+
+
+
 }
