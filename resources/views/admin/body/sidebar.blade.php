@@ -85,7 +85,7 @@
                                     <a href="{{ route('all.news.post') }}">All News Post</a>
                                 </li>
                                 <li>
-                                    <a href="">Add News Post</a>
+                                    <a href="{{ route('add.news.post') }}">Add News Post</a>
                                 </li>
                             </ul>
                         </div>
