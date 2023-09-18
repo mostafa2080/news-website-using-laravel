@@ -1,5 +1,6 @@
 @extends('frontend.home_dashboard')
 @section('home')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-8">
@@ -65,9 +66,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="single-details">
-                    <p> {!! $news->news_details !!} </p>
-                </div>
+
+                <button id="inc">A+</button>
+                <button id="dec">A-</button>
+
+                <news-font>
+                    <div class="single-details">
+                        <p> {!! $news->news_details !!} </p>
+                    </div>
+                </news-font>
+
+
                 <div class="singlePage2-tag">
                     <span> Tags : </span>
 
@@ -406,4 +415,27 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+        var size = 16;
+
+        function setFontSize(s) {
+            size = s;
+            $('news-font').css('font-size', '' + size + 'px');
+        }
+
+        function increaseFontSize() {
+            setFontSize(size + 5);
+        }
+
+        function decreaseFontSize() {
+            if (size > 5)
+                setFontSize(size - 5);
+        }
+
+        $('#inc').click(increaseFontSize);
+        $('#dec').click(decreaseFontSize);
+        setFontSize(size);
+    </script>
 @endsection
