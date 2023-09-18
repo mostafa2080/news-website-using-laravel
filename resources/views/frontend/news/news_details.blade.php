@@ -9,7 +9,7 @@
 
                 <div class="single-cat-info">
                     <div class="single-home">
-                        <i class="la la-home"> </i><a href="{{ url('/') }}"> HOME </a>
+                        <i class="la la-home"> </i><a href=" "> HOME </a>
                     </div>
                     <div class="single-cats">
                         <i class="la la-bars"></i> <a href=" "
@@ -70,7 +70,10 @@
                 </div>
                 <div class="singlePage2-tag">
                     <span> Tags : </span>
-                    <a href=" " rel="tag">Queen</a> <a href=" " rel="tag">London</a>
+
+                    @foreach ($tags_all as $tag)
+                        <a href=" " rel="tag">{{ ucwords($tag) }}</a>
+                    @endforeach
                 </div>
 
                 <div class="single-add">
@@ -182,101 +185,32 @@
                     <a href=" ">Related News </a>
                 </div>
                 <div class="row">
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
+                    @foreach ($relatedNews as $item)
+                        <div class="themesBazar-3 themesBazar-m2">
+                            <div class="related-wrpp">
+                                <div class="related-image">
+                                    <a href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}"><img
+                                            class="lazyload" src="{{ asset($item->image) }}"></a>
+                                </div>
+                                <h4 class="related-title">
+                                    <a href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ $item->news_title }}
+                                    </a>
+                                </h4>
+                                <div class="related-meta">
+                                    <a href=" "><i class="la la-tags"> </i>
+                                        {{ $news->created_at->format('l M d Y') }}
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
 
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="themesBazar-3 themesBazar-m2">
-                        <div class="related-wrpp">
-                            <div class="related-image">
-                                <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                            </div>
-                            <h4 class="related-title">
-                                <a href=" ">Why people are industry hopping </a>
-                            </h4>
-                            <div class="related-meta">
-                                <a href=" "><i class="la la-tags"> </i>
-                                    Saturday, 10th September 2022
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+
 
 
 
