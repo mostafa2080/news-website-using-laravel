@@ -35,8 +35,8 @@
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-3">
                                         <label for="inputEmail4" class="form-label">Category Name </label>
-                                        <select name="category_id" class="form-select" id="example-select">
-                                            <option>Select Category </option>
+                                        <select name="category_id" class="form-select required" id="example-select">
+                                            <option value="">Select Category </option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
                                             @endforeach
@@ -53,9 +53,9 @@
 
 
                                     <div class="form-group col-md-6 mb-3">
-                                        <label for="inputEmail4" class="form-label">Writer </label>
+                                        <label for="inputEmail4" class="form-label required">Writer </label>
                                         <select name="user_id" class="form-select" id="example-select">
-                                            <option>Select Writer </option>
+                                            <option value="">Select Writer </option>
                                             @foreach ($adminuser as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach
@@ -82,7 +82,7 @@
 
                                     <div class="col-12 mb-3">
                                         <label for="inputEmail4" class="form-label">News Details </label>
-                                        <textarea name="news_details"></textarea>
+                                        <textarea class="required" name="news_details"></textarea>
                                     </div>
 
 
@@ -103,7 +103,7 @@
 
                                             <div class="form-check mb-2 form-check-primary">
                                                 <input class="form-check-input" type="checkbox" name="top_slider"
-                                                    value="1" id="customckeck1">
+                                                    value="1" id="customckeck2">
                                                 <label class="form-check-label" for="customckeck2">Top Slider</label>
                                             </div>
 
@@ -122,7 +122,7 @@
 
                                             <div class="form-check mb-2 form-check-danger">
                                                 <input class="form-check-input" name="first_section_nine" type="checkbox"
-                                                    value="1" id="customckeck3">
+                                                    value="1" id="customckeck4">
                                                 <label class="form-check-label" for="customckeck4">First Section
                                                     Nine</label>
                                             </div>
@@ -158,37 +158,37 @@
         $(document).ready(function() {
             $('#myForm').validate({
                 rules: {
-                    username: {
+                    category_id: {
                         required: true,
                     },
-                    name: {
+                    user_id: {
                         required: true,
                     },
-                    email: {
+                    news_title: {
                         required: true,
                     },
-                    phone: {
+                    image: {
                         required: true,
                     },
-                    password: {
+                    news_details: {
                         required: true,
                     },
                 },
                 messages: {
-                    username: {
-                        required: 'Please Enter User Name',
+                    category_id: {
+                        required: 'Please Select Category ',
                     },
-                    name: {
-                        required: 'Please Enter Your Name',
+                    user_id: {
+                        required: 'Please Select Writer',
                     },
-                    email: {
-                        required: 'Please Enter Your Email',
+                    news_title: {
+                        required: 'Please Enter A Title',
                     },
-                    phone: {
-                        required: 'Please Enter Your Phone',
+                    image: {
+                        required: 'Please Select News Image',
                     },
-                    password: {
-                        required: 'Please Enter Your Password',
+                    news_details: {
+                        required: 'Please Enter News Details',
                     },
                 },
                 errorElement: 'span',
