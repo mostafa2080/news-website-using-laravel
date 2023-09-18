@@ -67,4 +67,12 @@ class NewsPostController extends Controller
         );
         return redirect()->route('all.news.post')->with($notification);
     }
+    public function EditNewsPost($id)
+    {
+        $categories = Category::latest()->get();
+        $subcategories = Subcategory::latest()->get();
+        $adminuser = User::where('role', 'admin')->latest()->get();
+        $newspost = NewsPost::findOrFail($id);
+        return view('backend.news.edit_news_post', compact('categories', 'subcategories', 'adminuser', 'newspost'));
+    }
 }
