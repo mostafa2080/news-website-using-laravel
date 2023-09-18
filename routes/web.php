@@ -105,6 +105,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 //Public Access
 Route::get('/news/details/{id}/{slug}', [IndexController::class, 'NewsDetails']);
 Route::get('/news/category/{id}/{slug}', [IndexController::class, 'CatWiseNews']);
+Route::get('/news/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseNews']);
 
 
 require __DIR__ . '/auth.php';
