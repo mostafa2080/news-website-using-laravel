@@ -1,3 +1,12 @@
+@php
+    
+    $breaking_news = App\Models\NewsPost::where('status', 1)
+        ->where('breaking_news', 1)
+        ->limit(7)
+        ->get();
+@endphp
+
+
 <div class="top-scroll-section5">
     <div class="container">
         <div class="alert" role="alert">
@@ -12,10 +21,12 @@
                         <div class="scroll5-right">
                             <marquee direction="left" scrollamount="5px" onmouseover="this.stop()"
                                 onmouseout="this.start()">
-
-                                <a href=" ">
-                                    <img src="" alt="Logo" title="Logo" width="30px" height="auto">
-
+                                @foreach ($breaking_news as $item)
+                                    <a href=" ">
+                                        <img src="{{ asset('frontend/assets/images/favicon.gif') }}" alt="Logo"
+                                            title="Logo" width="30px" height="auto">
+                                        {{ $item->news_title }} </a>
+                                @endforeach
 
                             </marquee>
                         </div>
