@@ -22,7 +22,7 @@
                         <div class="themesbazar_led_active owl-carousel owl-loaded owl-drag">
 
                             @php
-
+                                
                                 $news_slider = App\Models\NewsPost::where('status', 1)
                                     ->where('top_slider', 1)
                                     ->limit(3)
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-lg-5 col-md-5">
                         @php
-
+                            
                             $section_three = App\Models\NewsPost::where('status', 1)
                                 ->where('first_section_three', 1)
                                 ->limit(3)
@@ -94,7 +94,7 @@
                     <div class="row">
 
                         @php
-
+                            
                             $section_nine = App\Models\NewsPost::where('status', 1)
                                 ->where('first_section_nine', 1)
                                 ->limit(9)
@@ -108,14 +108,14 @@
                                             <a href=" "><img class="lazyload" src="{{ asset($nine->image) }}"></a>
                                         </div>
                                         <h4 class="secOne-title2">
-                                            <a href="">
+                                            <a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">
                                                 {{ $nine->news_title }}
                                             </a>
                                         </h4>
                                     </div>
                                     <div class="cat-meta">
                                         <a href=" "> <i class="lar la-newspaper"></i>
-                                            
+
                                         </a>
                                     </div>
                                 </div>
