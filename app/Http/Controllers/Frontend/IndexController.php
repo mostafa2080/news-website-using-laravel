@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\NewsPost;
 use Carbon\Carbon;
@@ -42,5 +43,19 @@ class IndexController extends Controller
 
 
         return view('frontend.news.news_details', compact('news', 'tags_all', 'relatedNews', 'newnewspost', 'newspopular'));
+    } // End Method
+
+
+    public function CatWiseNews($id, $slug)
+    {
+
+        $news = NewsPost::where('status', 1)->where('category_id', $id)->orderBy('id', 'DESC')->get();
+        $breadcat = Category::where('id', $id)->first();
+        $newstwo = NewsPost::where('status', 1)->where('category_id', $id)->orderBy('id', 'DESC')->limit(2)->get();
+
+        $newnewspost = NewsPost::orderBy('id', 'DESC')->limit(8)->get();
+        $newspopular = NewsPost::orderBy('view_count', 'DESC')->limit(8)->get();
+
+        return view('frontend.news.category_news', compact('news', 'breadcat', 'newstwo', 'newnewspost', 'newspopular'));
     } // End Method
 }
