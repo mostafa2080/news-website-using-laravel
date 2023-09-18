@@ -15,7 +15,7 @@
                                     Post</a>
                             </ol>
                         </div>
-                        <h4 class="page-title">Add News Post <span class="btn btn-danger"> {{ count($allnews) }} </span>
+                        <h4 class="page-title">All News Post <span class="btn btn-danger"> {{ count($allnews) }} </span>
                         </h4>
                     </div>
                 </div>
@@ -49,9 +49,9 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td><img src="{{ asset($item->image) }} " style="width: :50px; height:50px;">
                                             </td>
-                                            <td>{{ $item->news_title }}</td>
-                                            <td>{{ $item->category_id }}</td>
-                                            <td>{{ $item->user_id }}</td>
+                                            <td>{{ Str::limit($item->news_title, 20) }}</td>
+                                            <td>{{ $item['category']['category_name'] }}</td>
+                                            <td>{{ $item['user']['name'] }}</td>
                                             <td>{{ Carbon\Carbon::parse($item->post_date)->diffForHumans() }}</td>
                                             <td>
                                                 @if ($item->status == 1)
