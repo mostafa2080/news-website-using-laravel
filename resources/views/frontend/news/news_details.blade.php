@@ -42,7 +42,7 @@
                                     {{ $news->created_at->format('l M d Y') }}
                                 </li>
                                 <li> / <i class="la la-eye"></i>
-                                    75
+                                    {{ $news->view_count }}
                                     Read
                                 </li>
                             </ul>
