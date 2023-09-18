@@ -22,7 +22,7 @@
                         <div class="themesbazar_led_active owl-carousel owl-loaded owl-drag">
 
                             @php
-                                
+
                                 $news_slider = App\Models\NewsPost::where('status', 1)
                                     ->where('top_slider', 1)
                                     ->limit(3)
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-lg-5 col-md-5">
                         @php
-                            
+
                             $section_three = App\Models\NewsPost::where('status', 1)
                                 ->where('first_section_three', 1)
                                 ->limit(3)
@@ -93,26 +93,34 @@
                 <div class="sec-one-item2">
                     <div class="row">
 
+                        @php
 
-
-                        <div class="themesBazar-3 themesBazar-m2">
-                            <div class="sec-one-wrpp2">
-                                <div class="secOne-news">
-                                    <div class="secOne-image2">
-                                        <a href=" "><img class="lazyload" src=""></a>
+                            $section_nine = App\Models\NewsPost::where('status', 1)
+                                ->where('first_section_nine', 1)
+                                ->limit(9)
+                                ->get();
+                        @endphp
+                        @foreach ($section_nine as $nine)
+                            <div class="themesBazar-3 themesBazar-m2">
+                                <div class="sec-one-wrpp2">
+                                    <div class="secOne-news">
+                                        <div class="secOne-image2">
+                                            <a href=" "><img class="lazyload" src="{{ asset($nine->image) }}"></a>
+                                        </div>
+                                        <h4 class="secOne-title2">
+                                            <a href="">
+                                                {{ $nine->news_title }}
+                                            </a>
+                                        </h4>
                                     </div>
-                                    <h4 class="secOne-title2">
-                                        <a href="">
-
+                                    <div class="cat-meta">
+                                        <a href=" "> <i class="lar la-newspaper"></i>
+                                            
                                         </a>
-                                    </h4>
-                                </div>
-                                <div class="cat-meta">
-                                    <a href=" "> <i class="lar la-newspaper"></i>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
 
 
 
