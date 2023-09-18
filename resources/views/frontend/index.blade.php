@@ -67,18 +67,25 @@
 
                     </div>
                     <div class="col-lg-5 col-md-5">
+                        @php
+                            
+                            $section_three = App\Models\NewsPost::where('status', 1)
+                                ->where('first_section_three', 1)
+                                ->limit(3)
+                                ->get();
+                        @endphp
 
-
-                        <div class="secOne-smallItem">
-                            <div class="secOne-smallImg">
-                                <a href=""><img class="lazyload" src=""></a>
-                                <h5 class="secOne_smallTitle">
-                                    <a href="">
-                                    </a>
-                                </h5>
+                        @foreach ($section_three as $three)
+                            <div class="secOne-smallItem">
+                                <div class="secOne-smallImg">
+                                    <a href=""><img class="lazyload" src="{{ asset($three->image) }}"></a>
+                                    <h5 class="secOne_smallTitle">
+                                        <a href="">{{ $three->news_title }}
+                                        </a>
+                                    </h5>
+                                </div>
                             </div>
-                        </div>
-
+                        @endforeach
 
 
                     </div>
