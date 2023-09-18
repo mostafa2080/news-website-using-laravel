@@ -21,29 +21,37 @@
                     <div class="col-lg-7 col-md-7">
                         <div class="themesbazar_led_active owl-carousel owl-loaded owl-drag">
 
+                            @php
+                                
+                                $news_slider = App\Models\NewsPost::where('status', 1)
+                                    ->where('top_slider', 1)
+                                    ->limit(3)
+                                    ->get();
+                            @endphp
 
 
                             <div class="owl-stage-outer">
                                 <div class="owl-stage"
                                     style="transform: translate3d(-1578px, 0px, 0px); transition: all 1s ease 0s; width: 3684px;">
-
-                                    <div class="owl-item " style="width: 506.25px; margin-right: 20px;">
-                                        <div class="secOne_newsContent">
-                                            <div class="sec-one-image">
-                                                <a href=""><img class="lazyload" src=""></a>
-                                                <h6 class="sec-small-cat">
-                                                    <a href=" ">
-                                                    </a>
-                                                </h6>
-                                                <h1 class="sec-one-title">
-                                                    <a href="">
-                                                    </a>
-                                                </h1>
+                                    @foreach ($news_slider as $slider)
+                                        <div class="owl-item " style="width: 506.25px; margin-right: 20px;">
+                                            <div class="secOne_newsContent">
+                                                <div class="sec-one-image">
+                                                    <a href=""><img class="lazyload"
+                                                            src="{{ asset($slider->image) }}"></a>
+                                                    <h6 class="sec-small-cat">
+                                                        <a href=" ">
+                                                            {{ $slider->created_at->format('M d Y') }}
+                                                        </a>
+                                                    </h6>
+                                                    <h1 class="sec-one-title">
+                                                        <a href="">
+                                                        </a>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i
@@ -182,11 +190,11 @@
                     <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popular">
                         <div class="news-titletab">
 
-                                <div class="tab-image tab-border">
-                                    <a href=""><img class="lazyload" src=""></a>
-                                    <a href=" " class="tab-icon"><i class="la la-play"></i></a>
-                                    <h4 class="tab_hadding"><a href=""> </a></h4>
-                                </div>
+                            <div class="tab-image tab-border">
+                                <a href=""><img class="lazyload" src=""></a>
+                                <a href=" " class="tab-icon"><i class="la la-play"></i></a>
+                                <h4 class="tab_hadding"><a href=""> </a></h4>
+                            </div>
 
 
 
@@ -278,18 +286,18 @@
                             aria-labelledby="categori-tab1 ">
                             <div class="row">
 
-                                    <div class="themesBazar-4 themesBazar-m2">
-                                        <div class="sec-two-wrpp">
-                                            <div class="section-two-image">
+                                <div class="themesBazar-4 themesBazar-m2">
+                                    <div class="sec-two-wrpp">
+                                        <div class="section-two-image">
 
-                                                <a href=" "><img class="lazyload" src=""></a>
-                                            </div>
-                                            <h5 class="sec-two-title">
-                                                <a href="">
-                                                </a>
-                                            </h5>
+                                            <a href=" "><img class="lazyload" src=""></a>
                                         </div>
+                                        <h5 class="sec-two-title">
+                                            <a href="">
+                                            </a>
+                                        </h5>
                                     </div>
+                                </div>
 
 
 
@@ -782,8 +790,7 @@
 <section class="section-seven">
     <div class="container">
 
-        <h2 class="themesBazar_cat01"> <a href=" "> </a> <span> <a
-                    href=""> More <i
+        <h2 class="themesBazar_cat01"> <a href=" "> </a> <span> <a href=""> More <i
                         class="las la-arrow-circle-right"></i> </a></span> </h2>
 
         <div class="secSecven-color">
@@ -792,24 +799,24 @@
 
                 <div class="col-lg-5 col-md-5">
 
-                            <div class="black-bg">
+                    <div class="black-bg">
 
-                                <div class="secSeven-image">
-                                    <a href=" "><img class="lazyload" src=""></a> <a
-                                        href=" " class="video-icon6"><i class="la la-play"></i></a>
-                                </div>
-                                <h6 class="secSeven-title">
-                                    <a href="">
-                                    </a>
-                                </h6>
-                                <div class="secSeven-details">
+                        <div class="secSeven-image">
+                            <a href=" "><img class="lazyload" src=""></a> <a href=" "
+                                class="video-icon6"><i class="la la-play"></i></a>
+                        </div>
+                        <h6 class="secSeven-title">
+                            <a href="">
+                            </a>
+                        </h6>
+                        <div class="secSeven-details">
 
 
-                                    <a href="">
-                                        More..</a>
-                                </div>
+                            <a href="">
+                                More..</a>
+                        </div>
 
-                            </div>
+                    </div>
 
                 </div>
 
@@ -817,19 +824,17 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="row">
 
-                                <div class="themesBazar-2 themesBazar-m2">
-                                    <div class="secSeven-wrpp ">
-                                        <div class="secSeven-image2">
-                                            <a href=" "><img class="lazyload"
-                                                    src=""></a>
-                                            <h5 class="secSeven-title2">
-                                                <a
-                                                    href="">
-                                                </a>
-                                            </h5>
-                                        </div>
-                                    </div>
+                        <div class="themesBazar-2 themesBazar-m2">
+                            <div class="secSeven-wrpp ">
+                                <div class="secSeven-image2">
+                                    <a href=" "><img class="lazyload" src=""></a>
+                                    <h5 class="secSeven-title2">
+                                        <a href="">
+                                        </a>
+                                    </h5>
                                 </div>
+                            </div>
+                        </div>
 
 
 
@@ -1010,17 +1015,17 @@
                             style="transform: translate3d(-4764px, 0px, 0px); transition: all 1s ease 0s; width: 5558px;">
 
 
-                                <div class="owl-item" style="width: 784px; margin-right: 10px;">
-                                    <div class="item">
-                                        <div class="photo">
-                                            <a class="themeGallery" href="">
-                                                <img src="" alt="PHOTO"></a>
-                                            <h3 class="photoCaption">
-                                                <a href=" "> </a>
-                                            </h3>
-                                        </div>
+                            <div class="owl-item" style="width: 784px; margin-right: 10px;">
+                                <div class="item">
+                                    <div class="photo">
+                                        <a class="themeGallery" href="">
+                                            <img src="" alt="PHOTO"></a>
+                                        <h3 class="photoCaption">
+                                            <a href=" "> </a>
+                                        </h3>
                                     </div>
                                 </div>
+                            </div>
 
 
 
@@ -1046,14 +1051,14 @@
 
 
 
-                                <div class="owl-item " style="width: 122.333px; margin-right: 10px;">
-                                    <div class="item">
-                                        <div class="phtot2">
-                                            <a class="themeGallery" href="">
-                                                <img src="" alt="PHOTO"></a>
-                                        </div>
+                            <div class="owl-item " style="width: 122.333px; margin-right: 10px;">
+                                <div class="item">
+                                    <div class="phtot2">
+                                        <a class="themeGallery" href="">
+                                            <img src="" alt="PHOTO"></a>
                                     </div>
                                 </div>
+                            </div>
 
 
 
@@ -1082,16 +1087,15 @@
 
 
 
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="">
-                                <a href="" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="" class="popup">  </a>
-                                </h5>
-                            </div>
+                    <div class="secFive-smallItem">
+                        <div class="secFive-smallImg">
+                            <img src="">
+                            <a href="" class="home-video-icon popup"><i class="las la-video"></i></a>
+                            <h5 class="secFive_title2">
+                                <a href="" class="popup"> </a>
+                            </h5>
                         </div>
+                    </div>
 
 
 
