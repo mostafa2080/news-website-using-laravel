@@ -149,4 +149,48 @@ class NewsPostController extends Controller
             return redirect()->route('all.news.post')->with($notification);
         }
     } // End Method
+
+    public function DeleteNewsPost($id)
+    {
+
+        $post_image = NewsPost::findOrFail($id);
+        $img = $post_image->image;
+        unlink($img);
+
+        NewsPost::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'News Post Deleted Successfully',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notification);
+    } // End Method
+
+    public function InactiveNewsPost($id)
+    {
+
+        NewsPost::findOrFail($id)->update(['status' => 0]);
+
+        $notification = array(
+            'message' => 'News Post InActive',
+            'alert-type' => 'info'
+
+        );
+        return redirect()->back()->with($notification);
+    } // End Method
+
+    public function ActiveNewsPost($id)
+    {
+
+        NewsPost::findOrFail($id)->update(['status' => 1]);
+
+        $notification = array(
+            'message' => 'News Post Active',
+            'alert-type' => 'info'
+
+        );
+        return redirect()->back()->with($notification);
+    } // End Method
+
 }
