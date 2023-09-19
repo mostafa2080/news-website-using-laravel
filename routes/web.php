@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SubcategoryController;
+use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -100,7 +101,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/inactive/news/post/{id}', 'InactiveNewsPost')->name('inactive.news.post');
         Route::get('/active/news/post/{id}', 'ActiveNewsPost')->name('active.news.post');
     }); //End Subcategory Routes
-});
+
+    // Banner all Route
+    Route::controller(BannerController::class)->group(function () {
+
+        Route::get('/all/banners', 'AllBanners')->name('all.banners');
+        Route::post('/update/banners', 'UpdateBanners')->name('update.banners');
+    });
+}); //end of protected backend routes
 
 //Public Access
 Route::get('/news/details/{id}/{slug}', [IndexController::class, 'NewsDetails']);
