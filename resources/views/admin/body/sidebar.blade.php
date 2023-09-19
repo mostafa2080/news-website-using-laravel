@@ -102,7 +102,7 @@
                             <ul class="nav-second-level">
 
                                 <li>
-                                    <a href="">All Banner</a>
+                                    <a href="{{ route('all.banners') }}">All Banner</a>
                                 </li>
 
 
