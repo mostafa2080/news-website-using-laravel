@@ -116,6 +116,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/add/photo/gallery', 'AddPhotoGallery')->name('add.photo.gallery');
         Route::post('/store/photo/gallery', 'StorePhotoGallery')->name('store.photo.gallery');
         Route::get('/edit/photo/gallery/{id}', 'EditPhotoGallery')->name('edit.photo.gallery');
+        Route::post('/update/photo/gallery', 'UpdatePhotoGallery')->name('update.photo.gallery');
     });
 }); //end of protected backend routes
 
@@ -125,6 +126,7 @@ Route::get('/news/category/{id}/{slug}', [IndexController::class, 'CatWiseNews']
 Route::get('/news/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseNews']);
 Route::get('/lang/change', [IndexController::class, 'Change'])->name('changeLang');
 Route::post('/search', [IndexController::class, 'SearchByDate'])->name('search-by-date');
+
 
 
 
