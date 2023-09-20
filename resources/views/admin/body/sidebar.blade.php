@@ -140,6 +140,9 @@
                                 <li>
                                     <a href="{{ route('all.video.gallery') }}">Video Gallery</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('add.video.gallery') }}">Add Video Gallery</a>
+                                </li>
 
                             </ul>
                         </div>
