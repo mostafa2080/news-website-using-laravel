@@ -48,4 +48,12 @@ class PhotoGalleryController extends Controller
         );
         return redirect()->route('all.photo.gallery')->with($notification);
     } // End Method
+
+
+    public function EditPhotoGallery($id)
+    {
+
+        $photogallery = PhotoGallery::findOrFail($id);
+        return view('backend.photo.edit_photo', compact('photogallery'));
+    } // End Method
 }
