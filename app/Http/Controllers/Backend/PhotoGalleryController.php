@@ -10,10 +10,16 @@ use Intervention\Image\Facades\Image;
 
 class PhotoGalleryController extends Controller
 {
-    public function AllPhotoGallery(){
+    public function AllPhotoGallery()
+    {
 
         $photo = PhotoGallery::latest()->get();
-        return view('backend.photo.all_photo',compact('photo'));
+        return view('backend.photo.all_photo', compact('photo'));
+    } // End Method
 
+
+    public function AddPhotoGallery()
+    {
+        return view('backend.photo.add_photo');
     } // End Method
 }
