@@ -46,7 +46,7 @@
                                                     style="width:50px; height:50px;"> </td>
                                             <td>{{ $item->post_date }}</td>
                                             <td>
-                                                <a href="{{ route('edit.category', $item->id) }}"
+                                                <a href="{{ route('edit.photo.gallery', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
                                                 <a href="{{ route('delete.category', $item->id) }}"
