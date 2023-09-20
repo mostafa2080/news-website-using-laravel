@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="{{ route('add.photo.gallery') }}" class="btn btn-blue waves-effect waves-light">Add
+                                <a href="{{ route('add.video.gallery') }}" class="btn btn-blue waves-effect waves-light">Add
                                     Video</a>
                             </ol>
                         </div>
@@ -43,12 +43,12 @@
                                     @foreach ($video as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset($item->video_image) }}"
-                                                    style="width:50px; height:50px;"> </td>
+                                            <td><img src="{{ asset($item->video_image) }}" style="width:50px; height:50px;">
+                                            </td>
                                             <td>{{ $item->video_title }}</td>
                                             <td>{{ $item->post_date }}</td>
                                             <td>
-                                                <a href="{{ route('edit.photo.gallery', $item->id) }}"
+                                                <a href="{{ route('edit.video.gallery', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
                                                 <a href="{{ route('delete.photo.gallery', $item->id) }}"
