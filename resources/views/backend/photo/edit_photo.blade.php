@@ -29,7 +29,8 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form id="myForm" method="post" action="" enctype="multipart/form-data">
+                            <form id="myForm" method="post" action="{{ route('update.photo.gallery') }}"
+                                enctype="multipart/form-data">
                                 @csrf
 
                                 <input type="hidden" name="id" value="{{ $photogallery->id }}">
@@ -44,7 +45,7 @@
 
                                     <div class="form-group col-md-8 mb-3">
                                         <label for="inputEmail4" class="form-label"> </label>
-                                        <img src="{{ asset($photogallery->photo_gallery) }}"
+                                        <img id="showImage" src="{{ asset($photogallery->photo_gallery) }}"
                                             style="width:400px; height: 200px;">
 
                                     </div>
@@ -69,4 +70,16 @@
         </div> <!-- container -->
 
     </div> <!-- content -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#multiImg').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
+        });
+    </script>
 @endsection
