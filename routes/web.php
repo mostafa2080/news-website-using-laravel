@@ -115,6 +115,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/all/photo/gallery', 'AllPhotoGallery')->name('all.photo.gallery');
         Route::get('/add/photo/gallery', 'AddPhotoGallery')->name('add.photo.gallery');
         Route::post('/store/photo/gallery', 'StorePhotoGallery')->name('store.photo.gallery');
+        Route::get('/edit/photo/gallery/{id}', 'EditPhotoGallery')->name('edit.photo.gallery');
     });
 }); //end of protected backend routes
 
