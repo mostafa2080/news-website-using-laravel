@@ -102,6 +102,22 @@ class VideoGalleryController extends Controller
             return redirect()->route('all.video.gallery')->with($notification);
         }
     } // End Method
+    public function DeleteVideoGallery($id)
+    {
+
+        $photo = VideoGallery::findOrFail($id);
+        $img = $photo->video_image;
+        unlink($img);
+
+        VideoGallery::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Video Gallery Deleted Successfully',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notification);
+    } // End Method
 
 
 
