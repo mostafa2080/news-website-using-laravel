@@ -46,7 +46,7 @@ class BannerController extends Controller
 
         if (!empty($messages)) {
             $notification = [
-                'message' => implode('.', $messages),
+                'message' => implode('\n', $messages),
                 'alert-type' => 'success'
             ];
             return redirect()->back()->with($notification);
