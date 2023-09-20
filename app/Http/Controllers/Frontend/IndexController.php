@@ -78,14 +78,7 @@ class IndexController extends Controller
     } // End Method
 
 
-    public function Change(Request $request)
-    {
 
-        App::setLocale($request->lang);
-        session()->put('locale', $request->lang);
-
-        return redirect()->back();
-    } // End Method
 
     public function SearchByDate(Request $request)
     {

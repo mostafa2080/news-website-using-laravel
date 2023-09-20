@@ -43,7 +43,7 @@
                                                         <h1 class="sec-one-title">
                                                             <a
                                                                 href="{{ url('news/details/' . $slider->id . '/' . $slider->news_title_slug) }}">
-                                                                {{ GoogleTranslate::trans($slider->news_title, app()->getLocale()) }}
+                                                                {{ $slider->news_title }}
                                                             </a>
                                                         </h1>
                                                     </div>
@@ -82,8 +82,9 @@
                                         <a href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}"><img
                                                 class="lazyload" src="{{ asset($three->image) }}"></a>
                                         <h5 class="secOne_smallTitle">
-                                            <a href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}">
-                                                {{ GoogleTranslate::trans($three->news_title, app()->getLocale()) }} </a>
+                                            <a
+                                                href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}">
+                                                {{ $three->news_title }} </a>
                                         </h5>
                                     </div>
                                 </div>
@@ -112,8 +113,9 @@
                                                 <a href=" "><img class="lazyload" src="{{ asset($nine->image) }}"></a>
                                             </div>
                                             <h4 class="secOne-title2">
-                                                <a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">
-                                                    {{ GoogleTranslate::trans($nine->news_title, app()->getLocale()) }}
+                                                <a
+                                                    href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">
+                                                    {{ $nine->news_title }}
                                                 </a>
                                             </h4>
                                         </div>
@@ -197,7 +199,7 @@
                                                 class="lazyload" src="{{ asset($item->image) }}"></a>
                                         <a href=" " class="tab-icon"><i class="la la-play"></i></a>
                                         <h4 class="tab_hadding"><a
-                                                href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ GoogleTranslate::trans($item->news_title, app()->getLocale()) }}
+                                                href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ $item->news_title }}
                                             </a></h4>
                                     </div>
                                 @endforeach
@@ -215,7 +217,7 @@
                                                 class="lazyload" src="{{ asset($item->image) }}"></a>
                                         <a href=" " class="tab-icon"><i class="la la-play"></i></a>
                                         <h4 class="tab_hadding"><a
-                                                href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ GoogleTranslate::trans($item->news_title, app()->getLocale()) }}
+                                                href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ $item->news_title }}
                                             </a></h4>
                                     </div>
                                 @endforeach
@@ -245,7 +247,8 @@
                             <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
                                 allowfullscreen="true" class=""
                                 style="position: static; visibility: visible; width: 279px; height: 220px; display: block; flex-grow: 1;"
-                                title="Twitter Timeline" src=" "></iframe></div>
+                                title="Twitter Timeline" src=" "></iframe>
+                        </div>
                         <script async="" src="assets/js/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
