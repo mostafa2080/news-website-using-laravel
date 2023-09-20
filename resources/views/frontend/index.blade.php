@@ -82,8 +82,7 @@
                                         <a href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}"><img
                                                 class="lazyload" src="{{ asset($three->image) }}"></a>
                                         <h5 class="secOne_smallTitle">
-                                            <a
-                                                href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}">
+                                            <a href="{{ url('news/details/' . $three->id . '/' . $three->news_title_slug) }}">
                                                 {{ GoogleTranslate::trans($three->news_title, app()->getLocale()) }} </a>
                                         </h5>
                                     </div>
@@ -113,8 +112,7 @@
                                                 <a href=" "><img class="lazyload" src="{{ asset($nine->image) }}"></a>
                                             </div>
                                             <h4 class="secOne-title2">
-                                                <a
-                                                    href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">
+                                                <a href="{{ url('news/details/' . $nine->id . '/' . $nine->news_title_slug) }}">
                                                     {{ GoogleTranslate::trans($nine->news_title, app()->getLocale()) }}
                                                 </a>
                                             </h4>
@@ -247,8 +245,7 @@
                             <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
                                 allowfullscreen="true" class=""
                                 style="position: static; visibility: visible; width: 279px; height: 220px; display: block; flex-grow: 1;"
-                                title="Twitter Timeline" src=" "></iframe>
-                        </div>
+                                title="Twitter Timeline" src=" "></iframe></div>
                         <script async="" src="assets/js/widgets.js" charset="utf-8"></script>
                     </div>
                 </div>
@@ -1604,61 +1601,26 @@
                     </h2>
 
                     <div class="white-bg">
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="assets/images/lazy.jpg">
-                                <a href="https://www.youtube.com/watch?v=z3ZM1TUNoUY" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="https://www.youtube.com/watch?v=z3ZM1TUNoUY" class="popup"> Pakistan set
-                                        up Asia Cup final </a>
-                                </h5>
+
+                        @php
+                            $video_gallery = App\Models\VideoGallery::latest()->get();
+                        @endphp
+
+                        @foreach ($video_gallery as $video)
+                            <div class="secFive-smallItem">
+                                <div class="secFive-smallImg">
+                                    <img src="{{ asset($video->video_image) }}">
+                                    <a href="{{ $video->video_url }}" class="home-video-icon popup"><i
+                                            class="las la-video"></i></a>
+                                    <h5 class="secFive_title2">
+                                        <a href="{{ $video->video_url }}" class="popup"> {{ $video->video_title }}
+                                        </a>
+                                    </h5>
+                                </div>
                             </div>
-                        </div>
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="assets/images/lazy.jpg">
-                                <a href="https://www.youtube.com/watch?v=XTUg53YVaqQ" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="https://www.youtube.com/watch?v=XTUg53YVaqQ" class="popup"> Pakistan set
-                                        up Asia Cup final</a>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="assets/images/lazy.jpg">
-                                <a href="https://www.youtube.com/watch?v=qr3CeJJ_mkM" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="https://www.youtube.com/watch?v=qr3CeJJ_mkM" class="popup"> Pakistan set
-                                        up Asia Cup final </a>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="assets/images/lazy.jpg">
-                                <a href="https://www.youtube.com/watch?v=BU12aHPjoNo" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="https://www.youtube.com/watch?v=BU12aHPjoNo" class="popup"> Pakistan set
-                                        up Asia Cup final </a>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="secFive-smallItem">
-                            <div class="secFive-smallImg">
-                                <img src="assets/images/lazy.jpg">
-                                <a href="https://www.youtube.com/watch?v=TH0kuBADgSI" class="home-video-icon popup"><i
-                                        class="las la-video"></i></a>
-                                <h5 class="secFive_title2">
-                                    <a href="https://www.youtube.com/watch?v=TH0kuBADgSI" class="popup"> Pakistan set
-                                        up Asia Cup final </a>
-                                </h5>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
