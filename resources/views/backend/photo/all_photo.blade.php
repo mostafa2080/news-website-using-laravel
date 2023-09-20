@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="{{ route('add.category') }}" class="btn btn-blue waves-effect waves-light">Add
+                                <a href="{{ route('add.photo.gallery') }}" class="btn btn-blue waves-effect waves-light">Add
                                     Photo</a>
                             </ol>
                         </div>
