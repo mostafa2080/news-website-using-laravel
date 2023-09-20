@@ -18,5 +18,10 @@ class VideoGalleryController extends Controller
         return view('backend.video.all_video', compact('video'));
     } // End Method
 
+    public function AddVideoGallery()
+    {
+        return view('backend.video.add_video');
+    } // End Method
+
 
 }
