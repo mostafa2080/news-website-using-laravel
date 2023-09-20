@@ -121,7 +121,7 @@
                         <div class="collapse" id="sidebarEmail">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">Photo Gallery</a>
+                                    <a href="{{ route('all.photo.gallery') }}">Photo Gallery</a>
                                 </li>
 
                             </ul>
