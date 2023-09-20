@@ -51,7 +51,7 @@
                                                 <a href="{{ route('edit.video.gallery', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
-                                                <a href="{{ route('delete.photo.gallery', $item->id) }}"
+                                                <a href="{{ route('delete.video.gallery', $item->id) }}"
                                                     class="btn btn-danger rounded-pill waves-effect waves-light"
                                                     id="delete">Delete</a>
 
