@@ -17,7 +17,7 @@
                             <div class="themesbazar_led_active owl-carousel owl-loaded owl-drag">
 
                                 @php
-                                    
+
                                     $news_slider = App\Models\NewsPost::where('status', 1)
                                         ->where('top_slider', 1)
                                         ->limit(3)
@@ -67,7 +67,7 @@
                         <div class="col-lg-5 col-md-5">
 
                             @php
-                                
+
                                 $section_three = App\Models\NewsPost::where('status', 1)
                                     ->where('first_section_three', 1)
                                     ->limit(3)
@@ -95,7 +95,7 @@
                         <div class="row">
 
                             @php
-                                
+
                                 $section_nine = App\Models\NewsPost::where('status', 1)
                                     ->where('first_section_nine', 1)
                                     ->limit(9)
@@ -243,13 +243,17 @@
         </div>
     </section>
 
+    @php
+        $banner = App\Models\Banner::find(1);
+    @endphp
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6">
                 <div class="themesBazar_widget">
                     <div class="textwidget">
                         <p><img loading="lazy" class="aligncenter size-full wp-image-74"
-                                src="assets/images/biggapon-1.gif" alt="" width="100%" height="auto"></p>
+                                src="{{ asset($banner->home_one) }}" alt="" width="100%" height="auto"></p>
                     </div>
                 </div>
             </div>
@@ -257,12 +261,12 @@
                 <div class="themesBazar_widget">
                     <div class="textwidget">
                         <p><img loading="lazy" class="aligncenter size-full wp-image-74"
-                                src="assets/images/biggapon-1.gif" alt="" width="100%" height="auto"></p>
+                                src="{{ asset($banner->home_two) }}" alt="" width="100%" height="auto"></p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 
     <section class="section-two">
         <div class="container">
@@ -638,7 +642,8 @@
                 <div class="themesBazar_widget">
                     <div class="textwidget">
                         <p><img loading="lazy" class="aligncenter size-full wp-image-74"
-                                src="assets/images/biggapon-1.gif" alt="" width="100%" height="auto"></p>
+                                src="{{ asset($banner->home_three) }}" alt="" width="100%" height="auto">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -646,7 +651,7 @@
                 <div class="themesBazar_widget">
                     <div class="textwidget">
                         <p><img loading="lazy" class="aligncenter size-full wp-image-74"
-                                src="assets/images/biggapon-1.gif" alt="" width="100%" height="auto"></p>
+                                src="{{ asset($banner->home_four) }}" alt="" width="100%" height="auto"></p>
                     </div>
                 </div>
             </div>
