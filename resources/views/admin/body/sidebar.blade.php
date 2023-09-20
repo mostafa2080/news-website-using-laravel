@@ -138,7 +138,7 @@
                         <div class="collapse" id="video">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">Video Gallery</a>
+                                    <a href="{{ route('all.video.gallery') }}">Video Gallery</a>
                                 </li>
 
                             </ul>
