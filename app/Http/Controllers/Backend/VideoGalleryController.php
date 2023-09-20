@@ -30,6 +30,7 @@ class VideoGalleryController extends Controller
         Image::make($image)->resize(784, 436)->save('upload/video/' . $name_gen);
         $save_url = 'upload/video/' . $name_gen;
 
+
         VideoGallery::insert([
 
             'video_title' => $request->video_title,
@@ -52,6 +53,54 @@ class VideoGalleryController extends Controller
 
         $video = VideoGallery::findOrFail($id);
         return view('backend.video.edit_video', compact('video'));
+    } // End Method
+    public function UpdateVideoGallery(Request $request)
+    {
+
+        $video_id = $request->id;
+
+        if ($request->file('video_image')) {
+
+            $image = $request->file('video_image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(784, 436)->save('upload/video/' . $name_gen);
+            $save_url = 'upload/video/' . $name_gen;
+            $video_record = VideoGallery::findOrFail($request->id);
+            $img = $video_record->video_image;
+            unlink($img);
+
+            VideoGallery::findOrFail($video_id)->update([
+
+                'video_title' => $request->video_title,
+                'video_url' => $request->video_url,
+                'post_date' => Carbon::now()->format('d F Y'),
+                'video_image' => $save_url,
+
+            ]);
+
+            $notification = array(
+                'message' => 'Video Update With Image Successfully',
+                'alert-type' => 'success'
+
+            );
+            return redirect()->route('all.video.gallery')->with($notification);
+        } else {
+
+            VideoGallery::findOrFail($video_id)->update([
+
+                'video_title' => $request->video_title,
+                'video_url' => $request->video_url,
+                'post_date' => Carbon::now()->format('d F Y'),
+
+            ]);
+
+            $notification = array(
+                'message' => 'Video Update Without Image Successfully',
+                'alert-type' => 'success'
+
+            );
+            return redirect()->route('all.video.gallery')->with($notification);
+        }
     } // End Method
 
 
