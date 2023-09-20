@@ -25,12 +25,19 @@ class BannerController extends Controller
         $banner_id = $request->id;
         $messages = [];
 
+
         $sectionNames = [
             'home_one', 'home_two', 'home_three', 'home_four', 'news_category_one', 'news_details_one'
         ];
 
         foreach ($sectionNames as $sectionName) {
             if ($request->file($sectionName)) {
+                $currentImagePath = Banner::findOrFail($banner_id)->{$sectionName};
+
+                if (file_exists(public_path($currentImagePath))) {
+                    unlink(public_path($currentImagePath));
+                }
+
                 $image = $request->file($sectionName);
                 $name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 
@@ -45,8 +52,10 @@ class BannerController extends Controller
         }
 
         if (!empty($messages)) {
+            $message = implode("\n", $messages);
+
             $notification = [
-                'message' => implode('\n', $messages),
+                'message' => $message,
                 'alert-type' => 'success'
             ];
             return redirect()->back()->with($notification);
@@ -54,5 +63,5 @@ class BannerController extends Controller
             $error_message = 'No banners were updated.';
             return redirect()->back()->with('error_message', $error_message);
         }
-    }
+    } // End Method
 }
