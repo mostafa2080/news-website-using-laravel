@@ -128,6 +128,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/add/video/gallery', 'AddVideoGallery')->name('add.video.gallery');
         Route::post('/store/video/gallery', 'StoreVideoGallery')->name('store.video.gallery');
         Route::get('/edit/video/gallery/{id}', 'EditVideoGallery')->name('edit.video.gallery');
+        Route::post('/update/video/gallery', 'UpdateVideoGallery')->name('update.video.gallery');
     });
 }); //end of protected backend routes
 
