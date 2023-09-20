@@ -61,12 +61,19 @@ class PhotoGalleryController extends Controller
     {
         $photo_id = $request->id;
 
+
         if ($request->file('multi_image')) {
+
+
 
             $image = $request->file('multi_image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(700, 400)->save('upload/multi/' . $name_gen);
             $save_url = 'upload/multi/' . $name_gen;
+
+            $photo = PhotoGallery::findOrFail($photo_id);
+            $img = $photo->photo_gallery;
+            unlink($img);
 
             PhotoGallery::findOrFail($photo_id)->update([
                 'photo_gallery' => $save_url,
@@ -82,5 +89,23 @@ class PhotoGalleryController extends Controller
             return redirect()->route('all.photo.gallery')->with($notification);
         } // End If
 
+    } // End Method
+
+
+    public function DeletePhotoGallery($id)
+    {
+
+        $photo = PhotoGallery::findOrFail($id);
+        $img = $photo->photo_gallery;
+        unlink($img);
+
+        PhotoGallery::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Photo Gallery Deleted Successfully',
+            'alert-type' => 'success'
+
+        );
+        return redirect()->back()->with($notification);
     } // End Method
 }
