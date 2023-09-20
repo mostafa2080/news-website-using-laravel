@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\PhotoGalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -107,6 +108,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
         Route::get('/all/banners', 'AllBanners')->name('all.banners');
         Route::post('/update/banners', 'UpdateBanners')->name('update.banners');
+    });
+
+    Route::controller(PhotoGalleryController::class)->group(function () {
+
+        Route::get('/all/photo/gallery', 'AllPhotoGallery')->name('all.photo.gallery');
     });
 }); //end of protected backend routes
 
