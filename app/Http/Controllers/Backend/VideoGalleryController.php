@@ -47,7 +47,12 @@ class VideoGalleryController extends Controller
         return redirect()->route('all.video.gallery')->with($notification);
     } // End Method
 
+    public function EditVideoGallery($id)
+    {
 
+        $video = VideoGallery::findOrFail($id);
+        return view('backend.video.edit_video', compact('video'));
+    } // End Method
 
 
 
