@@ -111,27 +111,40 @@
                     </a>
                 </div>
 
-                <div class="author2">
-                    <div class="author-content2">
-                        <h6 class="author-caption2">
-                            <span> COMMENTS </span>
-                        </h6>
-                        <div class="author-image2">
-                            <img alt="" src="assets/images/lazy.jpg
-" class="avatar avatar-96 photo" height="96"
-                                width="96" loading="lazy">
-                        </div>
-                        <div class="authorContent">
-                            <h1 class="author-name2">
-                                <a href=" "> Jack MA </a>
-                            </h1>
-                            <div class="author-details">It will take the Queen's coffin on a final journey through London
-                                and on to Windsor Castle for a second service</div>
-                        </div>
 
-                    </div>
-                </div>
+                @php
+                    $review = App\Models\Review::where('news_id', $news->id)
+                        ->latest()
+                        ->limit(5)
+                        ->get();
+                @endphp
 
+
+                @foreach ($review as $item)
+                    @if ($item->status == 0)
+                    @else
+                        <div class="author2">
+                            <div class="author-content2">
+                                <h6 class="author-caption2">
+                                    <span> COMMENTS </span>
+                                </h6>
+                                <div class="author-image2">
+                                    <img alt=""
+                                        src="{{ !empty($item->user->photo) ? url('upload/user_images/' . $item->user->photo) : url('upload/no_image.jpg') }} "
+                                        class="avatar avatar-96 photo" height="96" width="96" loading="lazy">
+                                </div>
+                                <div class="authorContent">
+                                    <h1 class="author-name2">
+                                        <a href=" "> {{ $item->user->name }} </a>
+                                    </h1>
+                                    <p> {{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }} </p>
+                                    <div class="author-details">{{ $item->comment }}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
 
                 <hr>
 
@@ -140,8 +153,23 @@
                     <p><b> For Add Product Review. You Need To Login First <a href="{{ route('login') }}"> Login Page</a> </b>
                     </p>
                 @else
-                    <form action=" " method="post" class="wpcf7-form init" enctype="multipart/form-data"
-                        novalidate="novalidate" data-status="init">
+                    <form action="{{ route('store.review') }}" method="post" class="wpcf7-form init"
+                        enctype="multipart/form-data" novalidate="novalidate" data-status="init">
+                        @csrf
+
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @elseif(session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+
+                        <input type="hidden" name="news_id" value="{{ $news->id }}">
+
                         <div style="display: none;">
 
                         </div>
@@ -155,7 +183,8 @@
                                     </div>
                                     <div class="contact-form">
                                         <span class="wpcf7-form-control-wrap news_details">
-                                            <textarea name="news_details" cols="20" rows="5"
+
+                                            <textarea name="comment" cols="20" rows="5"
                                                 class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false"
                                                 placeholder="News Details...."></textarea>
                                         </span>
