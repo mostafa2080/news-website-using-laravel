@@ -130,7 +130,9 @@
 
 
 
-
+                            @php
+                                $live = App\Models\LiveTv::find(1);
+                            @endphp
                         </div>
                     </div>
                 </div>
@@ -142,7 +144,7 @@
                         </div>
                         <div class="popup-wrpp">
                             <div class="live_image">
-                                <img width="700" height="400" src="assets/images/lazy.jpg"
+                                <img width="700" height="400" src="{{ asset($live->live_image) }}"
                                     class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt=""
                                     loading="lazy">
                                 <div data-mfp-src="#mymodal" class="live-icon modal-live"> <i class="las la-play"></i>
@@ -153,8 +155,8 @@
                                     aria-describedby="modal-contents">
                                     <div id="modal-contents">
                                         <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                            <iframe class="" src=" " allowfullscreen="allowfullscreen"
-                                                width="100%" height="400px"></iframe>
+                                            <iframe class="" src="{{ $live->live_url }}"
+                                                allowfullscreen="allowfullscreen" width="100%" height="400px"></iframe>
                                         </div>
                                     </div>
                                 </div>
