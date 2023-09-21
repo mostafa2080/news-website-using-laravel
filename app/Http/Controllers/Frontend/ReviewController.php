@@ -49,7 +49,12 @@ class ReviewController extends Controller
 
         return redirect()->back()->with($notification);
     } // End Method
+    public function ApprovedReviews()
+    {
 
+        $review = Review::where('status', 1)->orderBy('id', 'DESC')->get();
+        return view('backend.review.approved_reviews', compact('review'));
+    } // End Method
 
 
 }
