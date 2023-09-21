@@ -15,7 +15,7 @@
                                     Review </a>
                             </ol>
                         </div>
-                        <h4 class="page-title">Approve Review <span class="btn btn-danger"> {{ count($review) }} </span>
+                        <h4 class="page-title">Approve Review <span class="btn btn-info"> {{ count($review) }} </span>
                         </h4>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
 
                                             </td>
                                             <td>
-                                                <a href=""
-                                                    class="btn btn-primary rounded-pill waves-effect waves-light"
+                                                <a href="{{ route('delete.review', $item->id) }}"
+                                                    class="btn btn-danger rounded-pill waves-effect waves-light"
                                                     id="delete">Delete </a>
 
                                             </td>
