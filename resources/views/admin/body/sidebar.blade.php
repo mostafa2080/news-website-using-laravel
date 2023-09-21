@@ -179,7 +179,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="">Approve Review</a>
+                                    <a href="{{ route('approved.reviews') }}">Approved Reviews</a>
                                 </li>
 
                             </ul>
