@@ -134,6 +134,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/update/live/tv', 'UpdateLiveTv')->name('update.live.tv');
         Route::post('/update/live', 'UpdateLiveData')->name('update.live');
     });
+
+    Route::controller(ReviewController::class)->group(function () {
+
+        Route::get('/pending/review', 'PendingReview')->name('pending.review');
+        Route::get('/review/approve/{id}', 'ReviewApprove')->name('review.approve');
+    });
 }); //end of protected backend routes
 
 //Public Access
@@ -142,6 +148,7 @@ Route::get('/news/category/{id}/{slug}', [IndexController::class, 'CatWiseNews']
 Route::get('/news/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseNews']);
 Route::post('/search', [IndexController::class, 'SearchByDate'])->name('search-by-date');
 Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
+
 
 
 
