@@ -2,7 +2,7 @@
     $id = Auth::user()->id;
     $userid = App\Models\User::find($id);
     $status = $userid->status;
-
+    
 @endphp
 
 <div class="left-side-menu">
@@ -158,7 +158,7 @@
                         <div class="collapse" id="live">
                             <ul class="nav-second-level">
                                 <li>
-                                <a href="{{ route('update.live.tv')}}">Update Live TV</a>
+                                    <a href="{{ route('update.live.tv') }}">Update Live TV</a>
                                 </li>
 
                             </ul>
@@ -175,7 +175,7 @@
                         <div class="collapse" id="review">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">Pending Review</a>
+                                    <a href="{{ route('pending.review') }}">Pending Review</a>
                                 </li>
 
                                 <li>
