@@ -12,7 +12,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
-use App\Models\NewsPost;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,6 +129,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/video/gallery/{id}', 'EditVideoGallery')->name('edit.video.gallery');
         Route::post('/update/video/gallery', 'UpdateVideoGallery')->name('update.video.gallery');
         Route::get('/delete/video/gallery/{id}', 'DeleteVideoGallery')->name('delete.video.gallery');
+        Route::get('/update/live/tv', 'UpdateLiveTv')->name('update.live.tv');
     });
 }); //end of protected backend routes
 
