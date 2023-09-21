@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\VideoGallery;
+use App\Models\LiveTv;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 
@@ -117,6 +118,12 @@ class VideoGalleryController extends Controller
 
         );
         return redirect()->back()->with($notification);
+    } // End Method
+
+    public function UpdateLiveTv()
+    {
+        $live = LiveTv::findOrFail(1);
+        return view('backend.video.live_tv', compact('live'));
     } // End Method
 
 
