@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-
+@php
+    $seo = App\Models\SeoSetting::find(1);
+@endphp
 <html lang="en-US">
 
 <head>
@@ -13,11 +15,11 @@
 
     <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.gif') }}" type="image/x-icon">
 
-    <meta name="title" content="">
-    <meta name="author" content="">
+    <meta name="title" content="{{ $seo->meta_title }}">
+    <meta name="author" content="{{ $seo->meta_author }}">
 
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="{{ $seo->meta_keyword }}">
+    <meta name="description" content="{{ $seo->meta_description }}">
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/line-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/headstyle.css') }}" />
@@ -48,8 +50,8 @@
     <link rel="stylesheet" id="newsflash-style-css" href="{{ asset('frontend/assets/css/style.css') }}" media="all">
     <link rel="stylesheet" id="common-themesbazar-css" href="{{ asset('frontend/assets/css/common-themesbazar.css') }}"
         media="all">
-    <link rel="stylesheet" id="newsflash-lineawesome-css" href="{{ asset('frontend/assets/css/line-awesome.min.css') }}"
-        media="all">
+    <link rel="stylesheet" id="newsflash-lineawesome-css"
+        href="{{ asset('frontend/assets/css/line-awesome.min.css') }}" media="all">
     <link rel="stylesheet" id="newsflash-stellarnav-css" href="{{ asset('frontend/assets/css/stellarnav.css') }}"
         media="all">
     <link rel="stylesheet" id="newsflash-jquery-css" href="{{ asset('frontend/assets/css/jquery-ui.css') }}"
