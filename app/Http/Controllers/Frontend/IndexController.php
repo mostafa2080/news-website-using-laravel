@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use App;
 use DateTime;
+use App\Models\User;
 
 class IndexController extends Controller
 {
@@ -104,6 +105,15 @@ class IndexController extends Controller
         $newspopular = NewsPost::orderBy('view_count', 'DESC')->limit(8)->get();
 
         return view('frontend.news.search', compact('news', 'newnewspost', 'newspopular', 'item'));
+    } // End Method
+
+    public function ReporterNews($id)
+    {
+
+        $reporter = User::findOrFail($id);
+
+        $news = NewsPost::where('user_id', $id)->get();
+        return view('frontend.reporter.reporter_news_post', compact('reporter', 'news'));
     } // End Method
 
 }
