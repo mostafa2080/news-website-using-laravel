@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\NewsPostController;
 use App\Http\Controllers\Backend\SubcategoryController;
 use App\Http\Controllers\Backend\BannerController;
 use App\Http\Controllers\Backend\PhotoGalleryController;
+use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\VideoGalleryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -149,6 +150,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
         Route::get('/seo/setting', 'SeoSiteSetting')->name('seo.setting');
         Route::post('/update/seo/setting', 'UpdateSeoSetting')->name('update.seo.setting');
+    });
+
+
+    // Permission all Route
+    Route::controller(RoleController::class)->group(function () {
+
+        Route::get('/all/permission', 'AllPermission')->name('all.permission');
     });
 }); //end of protected backend routes
 
