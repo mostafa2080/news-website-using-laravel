@@ -90,4 +90,20 @@ class IndexController extends Controller
         $news = NewsPost::where('post_date', $formatDate)->latest()->get();
         return view('frontend.news.search_by_date', compact('news', 'formatDate', 'newnewspost', 'newspopular'));
     } // End Method
+
+    public function NewsSearch(Request $request)
+    {
+
+
+        $request->validate(['search' => "required"]);
+
+        $item = $request->search;
+
+        $news = NewsPost::where('news_title', 'LIKE', "%$item%")->get();
+        $newnewspost = NewsPost::orderBy('id', 'DESC')->limit(8)->get();
+        $newspopular = NewsPost::orderBy('view_count', 'DESC')->limit(8)->get();
+
+        return view('frontend.news.search', compact('news', 'newnewspost', 'newspopular', 'item'));
+    } // End Method
+
 }
