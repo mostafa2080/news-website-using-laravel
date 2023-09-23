@@ -196,7 +196,7 @@
                         <div class="collapse" id="review">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">Update Seo </a>
+                                    <a href="{{ route('seo.setting') }}">Update Seo </a>
                                 </li>
 
 
