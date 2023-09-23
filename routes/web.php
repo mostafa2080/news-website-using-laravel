@@ -158,6 +158,7 @@ Route::get('/news/category/{id}/{slug}', [IndexController::class, 'CatWiseNews']
 Route::get('/news/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseNews']);
 Route::post('/search', [IndexController::class, 'SearchByDate'])->name('search-by-date');
 Route::post('/news', [IndexController::class, 'NewsSearch'])->name('news.search');
+Route::get('/reporter/{id}', [IndexController::class, 'ReporterNews'])->name('reporter.all.news');
 Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
 
 
