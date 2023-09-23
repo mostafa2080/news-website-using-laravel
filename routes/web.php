@@ -13,6 +13,8 @@ use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Frontend\ReviewController;
+use App\Http\Controllers\Backend\SeoSettingController;
+
 
 
 /*
@@ -141,6 +143,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/review/approve/{id}', 'ReviewApprove')->name('review.approve');
         Route::get('/approved/reviews', 'ApprovedReviews')->name('approved.reviews');
         Route::get('/delete/review/{id}', 'DeleteReview')->name('delete.review');
+    });
+
+    Route::controller(SeoSettingController::class)->group(function () {
+
+        Route::get('/seo/setting', 'SeoSiteSetting')->name('seo.setting');
     });
 }); //end of protected backend routes
 
