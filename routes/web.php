@@ -160,6 +160,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/add/permission', 'AddPermission')->name('add.permission');
         Route::post('/store/permission', 'StorePermission')->name('permission.store');
         Route::get('/edit/permission/{id}', 'EditPermission')->name('edit.permission');
+        Route::post('/update/permission', 'UpdatePermission')->name('permission.update');
     });
 }); //end of protected backend routes
 
