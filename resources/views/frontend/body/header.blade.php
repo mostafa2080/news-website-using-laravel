@@ -45,8 +45,9 @@
 
 
             <div class="col-lg-3 col-md-3">
-                <form class="header-search" action=" " method="post">
-                    <input type="text" alue="" name="s" placeholder=" Search Here " required="">
+                <form class="header-search" action="{{ route('news.search') }}" method="post">
+                    @csrf
+                    <input type="text" alue="" name="search" placeholder=" Search Here " required="">
                     <button type="submit" value="Search"> <i class="las la-search"></i> </button>
                 </form>
             </div>
