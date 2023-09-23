@@ -36,7 +36,7 @@
                                     <div class="archive1-title"><a
                                             href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">{{ $item->news_title }}</a>
                                     </div>
-                                    <div class="content-details"> {!! Str::limit($item->news_details, 100) !!} <a
+                                    <div class="content-details"> <a
                                             href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }}">
                                             Read
                                             More </a>
