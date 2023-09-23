@@ -22,7 +22,8 @@ class RoleController extends Controller
         return view('backend.pages.permission.add_permission');
     } // End Method
 
-    public function StorePermission(Request $request){
+    public function StorePermission(Request $request)
+    {
 
         $role = Permission::create([
             'name' => $request->name,
@@ -35,8 +36,14 @@ class RoleController extends Controller
 
         );
         return redirect()->route('all.permission')->with($notification);
+    } // End Method
 
-    }// End Method 
+    public function EditPermission($id)
+    {
+
+        $permission = Permission::findOrFail($id);
+        return view('backend.pages.permission.edit_permission', compact('permission'));
+    } // End Method
 
 
 }
