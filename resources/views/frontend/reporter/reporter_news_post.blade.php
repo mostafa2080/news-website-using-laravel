@@ -11,154 +11,27 @@
         <div class="col-lg-8 col-md-8">
             <div class="row">
 
+                @foreach ($news as $item)
+                    <div class="custom-col-6">
+                        <div class="author-wrpp">
+                            <div class="authorNews-image">
 
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
+                                <a href=" "><img class="lazyload" src="{{ asset($item->image) }}"></a>
+                            </div>
+                            <div class="authorPage-content">
+                                <h2 class="authorPage-title">
+                                    <a
+                                        href="{{ url('news/details/' . $item->id . '/' . $item->news_title_slug) }} ">{{ $item->news_title }}</a>
+                                </h2>
+                                <div class="author-date">
+                                    <a href=" "> {{ $item->user->name }}</a> <span> <i class="las la-clock"></i>
+                                        {{ $item->created_at->format('l M d Y') }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="custom-col-6">
-                    <div class="author-wrpp">
-                        <div class="authorNews-image">
-
-                            <a href=" "><img class="lazyload" src="assets/images/lazy.jpg"></a>
-                        </div>
-                        <div class="authorPage-content">
-                            <h2 class="authorPage-title">
-                                <a href=" ">Funeral honours Queen’s ‘life-long sense of duty’</a>
-                            </h2>
-                            <div class="author-date">
-                                <a href=" "> Kazi Ariyan </a> <span> <i class="las la-clock"></i>
-                                    Saturday, 10th September 2022
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
 
 
@@ -193,11 +66,12 @@
 #fbf7f7; border: 2px solid
 #e1dfdf; border-radius: 5px;">
                     <figure class="authorPage-image">
-                        <img alt="" src="assets/images/lazy.jpg" class="avatar avatar-96 photo"
-                            height="96" width="96" loading="lazy">
+                        <img alt=""
+                            src="{{ !empty($reporter->photo) ? url('upload/admin_images/' . $reporter->photo) : url('upload/no_image.jpg') }}"
+                            class="avatar avatar-96 photo" height="96" width="96" loading="lazy">
                     </figure>
                     <h1 class="authorPage-name">
-                        <a href=" "> Kazi Ariyan </a>
+                        <a href=" "> {{ $reporter->name }} </a>
                     </h1>
                     <div class="author-social">
                         <a href="https://www.facebook.com//" target="_black" title="Facebook"><i
@@ -211,10 +85,10 @@
                         <a href="https://www.instagram.com//" target="_black" title="Instagram"><i
                                 class="lab la-instagram"></i></a>
                     </div>
-                    <div class="author-details" style="text-align:justify">
+                    {{-- <div class="author-details" style="text-align:justify">
                         Earlier, on Sunday morning, Prime Minister Sheikh Hasina along with her younger sister Sheikh
                         Rehana went to the Palace of Westminster to pay their last respect to the late Queen where the
-                        body of Elizabeth II was kept in the Lying-in-State. </div>
+                        body of Elizabeth II was kept in the Lying-in-State. </div> --}}
                 </div>
 
                 <div class="authorPopular_item">
