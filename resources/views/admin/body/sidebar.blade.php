@@ -242,7 +242,7 @@
                         <div class="collapse" id="sidebarExpages">
                             <ul class="nav-second-level">
                                 <li>
-                                    <a href="">All Permission</a>
+                                    <a href="{{ route('all.permission') }}">All Permission</a>
                                 </li>
                                 <li>
                                     <a href="">All Roles</a>
