@@ -77,4 +77,13 @@ class RoleController extends Controller
     } // End Method
 
 
+    ///////////////// All Roles Method ////////////////
+
+    public function AllRoles()
+    {
+
+        $roles = Role::all();
+        return view('backend.pages.roles.all_roles', compact('roles'));
+    } // End Method
+
 }
