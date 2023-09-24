@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
@@ -103,7 +105,8 @@ class AdminController extends Controller
 
     public function AddAdmin()
     {
-        return view('backend.admin.add_admin');
+        $roles = Role::all();
+        return view('backend.admin.add_admin', compact('roles'));
     } // End Method
 
     public function StoreAdmin(Request $request)
@@ -119,6 +122,10 @@ class AdminController extends Controller
         $user->status = 'inactive';
         $user->save();
 
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
+        
         $notification = array(
             'message' => 'New Admin User Created Successfully',
             'alert-type' => 'success'
