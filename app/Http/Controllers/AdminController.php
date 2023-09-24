@@ -155,7 +155,6 @@ class AdminController extends Controller
         $user->role = 'admin';
         $user->status = 'inactive';
         $user->save();
-        
         $user->roles()->detach();
         if ($request->roles) {
             $user->assignRole($request->roles);
@@ -169,12 +168,13 @@ class AdminController extends Controller
         return redirect()->route('all.admin')->with($notification);
     } // End Method
 
-
     public function DeleteAdmin($id)
     {
 
-        User::findOrFail($id)->delete();
-
+        $user =  User::findOrFail($id);
+        if (!is_null($user)) {
+            $user->delete();
+        }
         $notification = array(
             'message' => 'Admin User Deleted Successfully',
             'alert-type' => 'success'
