@@ -125,7 +125,7 @@ class AdminController extends Controller
         if ($request->roles) {
             $user->assignRole($request->roles);
         }
-        
+
         $notification = array(
             'message' => 'New Admin User Created Successfully',
             'alert-type' => 'success'
@@ -137,9 +137,9 @@ class AdminController extends Controller
 
     public function EditAdmin($id)
     {
-
+        $roles = Role::all();
         $adminuser = User::findOrFail($id);
-        return view('backend.admin.edit_admin', compact('adminuser'));
+        return view('backend.admin.edit_admin', compact('adminuser', 'roles'));
     } // End Method
 
     public function UpdateAdmin(Request $request)
@@ -155,6 +155,11 @@ class AdminController extends Controller
         $user->role = 'admin';
         $user->status = 'inactive';
         $user->save();
+        
+        $user->roles()->detach();
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
 
         $notification = array(
             'message' => 'Admin User Updated Successfully',
