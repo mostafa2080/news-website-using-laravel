@@ -51,7 +51,7 @@
 
 
                                             <td width="18%">
-                                                <a href="{{ route('edit.roles', $item->id) }}"
+                                                <a href="{{ route('admin.edit.roles', $item->id) }}"
                                                     class="btn btn-primary rounded-pill waves-effect waves-light">Edit</a>
 
                                                 <a href="{{ route('delete.roles', $item->id) }}"
