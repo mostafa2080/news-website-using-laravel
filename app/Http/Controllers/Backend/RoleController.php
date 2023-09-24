@@ -86,4 +86,12 @@ class RoleController extends Controller
         return view('backend.pages.roles.all_roles', compact('roles'));
     } // End Method
 
+    public function AddRoles()
+    {
+        return view('backend.pages.roles.add_roles');
+    } // End Method
+
+
+
+
 }
