@@ -174,6 +174,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/roles', 'UpdateRoles')->name('roles.update');
         Route::get('/delete/roles/{id}', 'DeleteRoles')->name('delete.roles');
         Route::get('/add/roles/permission', 'AddRolesPermission')->name('add.roles.permission');
+        Route::post('/role/permission/store', 'RolePermisssionStore')->name('role.permission.store');
     });
 }); //end of protected backend routes
 
