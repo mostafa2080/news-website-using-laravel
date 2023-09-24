@@ -11,7 +11,7 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <a href="" class="btn btn-blue waves-effect waves-light">Add Roles</a>
+                                <a href="{{ route('add.roles') }}" class="btn btn-blue waves-effect waves-light">Add Roles</a>
                             </ol>
                         </div>
                         <h4 class="page-title">Roles All </h4>
