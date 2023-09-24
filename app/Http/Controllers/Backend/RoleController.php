@@ -107,6 +107,15 @@ class RoleController extends Controller
     } // End Method
 
 
+    public function EditRoles($id)
+    {
+
+        $roles = Role::findOrFail($id);
+        return view('backend.pages.roles.edit_roles', compact('roles'));
+    } // End Method
+
+
+
 
 
 }
