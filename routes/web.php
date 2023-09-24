@@ -163,6 +163,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/permission', 'UpdatePermission')->name('permission.update');
         Route::get('/delete/permission/{id}', 'DeletePermission')->name('delete.permission');
     });
+
+    // Roles all Route
+    Route::controller(RoleController::class)->group(function () {
+
+        Route::get('/all/roles', 'AllRoles')->name('all.roles');
+    });
 }); //end of protected backend routes
 
 //Public Access
