@@ -177,10 +177,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/role/permission/store', 'RolePermisssionStore')->name('role.permission.store');
         Route::get('/all/roles/permission', 'AllRolesPermission')->name('all.roles.permission');
         Route::get('/admin/edit/roles/{id}', 'AdminEditRoles')->name('admin.edit.roles');
-        Route::post('/role/permission/update/{id}','RolePermissionUpdate')->name('role.permission.update');
-
+        Route::post('/role/permission/update/{id}', 'RolePermissionUpdate')->name('role.permission.update');
+        Route::get('/admin/delete/roles/{id}', 'AdminDeleteRoles')->name('admin.delete.roles');
     });
-}); //end of protected backend routes
+}); //end of protected backend routes   
 
 //Public Access
 Route::get('/news/details/{id}/{slug}', [IndexController::class, 'NewsDetails']);
