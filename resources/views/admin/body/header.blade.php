@@ -47,11 +47,17 @@
             </li>
 
 
+            @php
+                $reviewcount = Auth::user()
+                    ->unreadNotifications()
+                    ->count();
+            @endphp
+
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
                     role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="fe-bell noti-icon"></i>
-                    <span class="badge bg-danger rounded-circle noti-icon-badge"></span>
+                    <span class="badge bg-danger rounded-circle noti-icon-badge">{{ $reviewcount }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-lg">
 
@@ -72,17 +78,24 @@
 
                         <!-- item-->
 
-                        <!-- item-->
-                        <a href="" class="dropdown-item notify-item">
-                            <div class="notify-icon bg-secondary">
-                                <i class="mdi mdi-heart"></i>
-                            </div>
-                            <p class="notify-details">
-                                <b>Admin</b>
-                                <small class="text-muted">
-                                </small>
-                            </p>
-                        </a>
+                        @php
+                            $user = Auth::user();
+                        @endphp
+
+                        @forelse($user->notifications as $notifiaction)
+                            <!-- item-->
+                            <a href="{{ route('pending.review') }}" class="dropdown-item notify-item">
+                                <div class="notify-icon bg-secondary">
+                                    <i class="mdi mdi-heart"></i>
+                                </div>
+                                <p class="notify-details">{{ $notifiaction->data['message'] }}
+                                    <b>Admin</b>
+                                    <small class="text-muted">
+                                        {{ Carbon\Carbon::parse($notifiaction->created_at)->diffForHumans() }} </small>
+                                </p>
+                            </a>
+                        @empty
+                        @endforelse
 
                     </div>
 
