@@ -117,7 +117,7 @@
 
                         @php
                             $categories = App\Models\Category::orderBy('category_name', 'ASC')
-                                ->limit(7)
+                                ->limit(6)
                                 ->get();
                             
                         @endphp
@@ -152,12 +152,6 @@
                                 <a class="dd-toggle" href=" "><span class="icon-plus"></span></a>
                             </li>
                         @endforeach
-
-
-
-                        <li id="menu-item-277"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-277"><a
-                                href=" ">ARCRIVE</a></li>
 
                     </ul>
                     <a class="dd-toggle" href=" "><span class="icon-plus"></span></a></li>
